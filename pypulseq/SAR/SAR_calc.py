@@ -102,7 +102,7 @@ def _SAR_from_seq(
         block_dur = calc_duration(block)
         t[block_counter - 1] = t_prev + block_dur
         t_prev = t[block_counter - 1]
-        if hasattr(block, "rf"):  # has rf
+       if hasattr(block, "rf") and not(getattr(block,"rf") is None):  # has rf wjg added here
             rf = block.rf
             signal = rf.signal
             # This rf could be parallel transmit as well
